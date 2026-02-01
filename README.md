@@ -1,70 +1,105 @@
-# Getting Started with Create React App
+# 🏗️ ArchiTech – Interactive Floor Planner
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+ArchiTech is a web-based 2D floor planning application built using React and React Konva.  
+It allows users to design architectural floor plans by drawing walls, placing furniture and symbols, adding shapes, annotating text, and managing projects with autosave, undo/redo, and import/export support.
 
-## Available Scripts
+This project was built during a hackathon with a focus on usability, precision, and real-world architectural workflows.
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## ✨ Features
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 🧱 Wall Drawing
+•⁠  ⁠Click-and-drag wall creation
+•⁠  ⁠Fixed real-world wall thickness
+•⁠  ⁠Live wall length preview
+•⁠  ⁠Wall measurements displayed in feet and inches
+•⁠  ⁠Editable wall length and angle
+•⁠  ⁠Wall rotation and resizing with thickness lock
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+### 🔷 Shapes
+•⁠  ⁠Draw rectangles, circles, triangles, and arrows
+•⁠  ⁠Live preview while drawing
+•⁠  ⁠Drag, resize, and rotate shapes
 
-### `npm test`
+### 🪑 Icons & Furniture
+•⁠  ⁠Architectural symbols including:
+  - Doors (single, double, sliding)
+  - Windows
+  - Beds, sofas, dining tables
+  - Kitchen and bathroom fixtures
+  - TV, AC unit, stairs, shaft, compass
+•⁠  ⁠Drag, resize, and rotate icons
+•⁠  ⁠Flip icons horizontally and vertically
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### ✏️ Text Annotations
+•⁠  ⁠Add text boxes anywhere on the canvas
+•⁠  ⁠Double-click to edit text
+•⁠  ⁠Resize, move, and rotate text
+•⁠  ⁠Inline text editing using HTML overlay
 
-### `npm run build`
+### ↩️ Undo / Redo
+•⁠  ⁠Multi-step undo and redo (up to 50 actions)
+•⁠  ⁠Keyboard shortcuts:
+  - Ctrl + Z → Undo
+  - Ctrl + Y / Ctrl + Shift + Z → Redo
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 📋 Copy / Paste
+•⁠  ⁠Copy and paste walls, shapes, and icons
+•⁠  ⁠Keyboard shortcuts:
+  - Ctrl + C
+  - Ctrl + V
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 💾 Autosave
+•⁠  ⁠Automatic saving of projects
+•⁠  ⁠Debounced updates for performance
+•⁠  ⁠Supports authenticated and shared projects
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 📤 Import / Export
+•⁠  ⁠Export floor plans as ⁠ .ArchiTech ⁠ (JSON-based) files
+•⁠  ⁠Import previously saved projects
 
-### `npm run eject`
+### 👀 View-Only Mode
+•⁠  ⁠Read-only project sharing
+•⁠  ⁠Prevents editing for safe viewing and presentations
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### 🧹 Canvas Controls
+•⁠  ⁠Clear entire canvas with confirmation
+•⁠  ⁠Collapsible sidebar
+•⁠  ⁠Mode-based cursor changes
+•⁠  ⁠Responsive toolbar UI
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+## 📐 Measurement System
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+•⁠  ⁠Scale: 14 pixels = 1 foot
+•⁠  ⁠Automatic conversion to feet and inches
+•⁠  ⁠Dynamic measurement labels rendered on canvas
 
-## Learn More
+---
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+## 🛠 Tech Stack
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+•⁠  ⁠React
+•⁠  ⁠React Konva
+•⁠  ⁠react-konva-utils
+•⁠  ⁠use-image
+•⁠  ⁠React Router
+•⁠  ⁠Custom project services for persistence
 
-### Code Splitting
+---
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+## ⌨️ Keyboard Shortcuts
 
-### Analyzing the Bundle Size
+| Action | Shortcut |
+|------|--------|
+| Undo | Ctrl + Z |
+| Redo | Ctrl + Y / Ctrl + Shift + Z |
+| Delete | Delete / Backspace |
+| Copy | Ctrl + C |
+| Paste | Ctrl + V |
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## 📂 Project Structure
