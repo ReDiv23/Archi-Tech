@@ -2,7 +2,6 @@ import { initializeApp, getApps, getApp } from 'firebase/app';
 import { getAuth, GoogleAuthProvider } from 'firebase/auth';
 import { getDatabase } from 'firebase/database';
 import { getFirestore } from "firebase/firestore";
-import { defineConfig } from "vite";
 
 console.log("API KEY:", import.meta.env.VITE_FIREBASE_API_KEY);
 
@@ -22,7 +21,3 @@ export const auth = getAuth(app);
 export const database = getDatabase(app);
 export const googleProvider = new GoogleAuthProvider();
 export const db = getFirestore(app);
-
-export default defineConfig({
-  base: process.env.VITE_BASE_PATH || "/react-vite-deploy",
-})
