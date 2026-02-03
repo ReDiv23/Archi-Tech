@@ -65,7 +65,7 @@ const SYMBOL_IMAGES = {
   sink: base + "icons/sink.png",
   wc: base + "icons/wc.png",
   bathtub: base + "icons/bathtub.png",
-  ac: base + "icons/ac.png",
+  ac: base + "icons/shaft.png",
   tv: base + "icons/tv.png",
   shaft: base + "icons/shaft.png",
   compass: base + "icons/compass.png",
@@ -2057,4 +2057,5 @@ return (
       </Stage>
     </>
   );
+
 }
