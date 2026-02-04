@@ -416,21 +416,25 @@ export default function EditorCanvas() {
   useEffect(() => {
 
     /* ===== Autosave ===== */
-    if (!trRef.current) return;
+    if (!trRef.current || !stageRef.current) return;
     /* ===== Autosave ===== */
 
     if (!selectedId || isInDrawingMode) {
       trRef.current.nodes([]);
+      trRef.current.getLayer()?.batchDraw();
       return;
     }
 
-    const node =
-      rectRefs.current[selectedId] || wallRefs.current[selectedId] || shapeRefs.current[selectedId] || symbolRefs.current[selectedId] || textboxRefs.current[selectedId];
+    const node = stage.findOne(`#${selectedId}`);
 
-    if (node /* ===== Autosave ===== */&& trRef.current/* ===== Autosave ===== */) {
+    if (node) {
       trRef.current.nodes([node]);
-      trRef.current.getLayer().batchDraw();
     }
+    else {
+      trRef.current.nodes([]);
+    }
+
+    trRef.current.getLayer()?.batchDraw();
 
     /* Sync inputs ONLY when not editing */
     const wall = walls.find((w) => w.id === selectedId);
@@ -2058,5 +2062,6 @@ return (
     </>
   );
 }
+
 
 
