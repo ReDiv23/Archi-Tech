@@ -109,7 +109,7 @@ function SymbolImage({ symbol, onSelect, onDragEnd, onTransformEnd, registerRef,
       offsetX={symbol.flipX ? symbol.width : 0}
       offsetY={symbol.flipY ? symbol.height : 0}
       image={img}
-      draggable={!isInDrawingMode && !isReadOnly}
+      draggable={!isInDrawingMode}
       onClick={() => !isInDrawingMode && onSelect()}
       onDragEnd={onDragEnd}
       onTransformEnd={onTransformEnd}
@@ -416,25 +416,21 @@ export default function EditorCanvas() {
   useEffect(() => {
 
     /* ===== Autosave ===== */
-    if (!trRef.current || !stageRef.current) return;
+    if (!trRef.current) return;
     /* ===== Autosave ===== */
 
     if (!selectedId || isInDrawingMode) {
       trRef.current.nodes([]);
-      trRef.current.getLayer()?.batchDraw();
       return;
     }
 
-    const node = stage.findOne(`#${selectedId}`);
+    const node =
+      rectRefs.current[selectedId] || wallRefs.current[selectedId] || shapeRefs.current[selectedId] || symbolRefs.current[selectedId] || textboxRefs.current[selectedId];
 
-    if (node) {
+    if (node /* ===== Autosave ===== */&& trRef.current/* ===== Autosave ===== */) {
       trRef.current.nodes([node]);
+      trRef.current.getLayer().batchDraw();
     }
-    else {
-      trRef.current.nodes([]);
-    }
-
-    trRef.current.getLayer()?.batchDraw();
 
     /* Sync inputs ONLY when not editing */
     const wall = walls.find((w) => w.id === selectedId);
@@ -2062,6 +2058,3 @@ return (
     </>
   );
 }
-
-
-
