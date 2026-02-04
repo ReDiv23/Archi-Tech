@@ -17,6 +17,8 @@ export async function createProject(uid) {
     objects: [],
     walls: [],
     shapes: [],
+    symbols: [],
+    textboxes: [],
     createdAt: Date.now(),
   });
   return docRef.id;
@@ -69,16 +71,18 @@ export async function deleteProject(uid, projectId) {
 export async function enableSharing(uid, projectId) {
   const shareId = crypto.randomUUID();
 
-  // 🔥 Get original project
+  // Get original project
   const originalRef = doc(db, "users", uid, "projects", projectId);
   const snap = await getDoc(originalRef);
   const data = snap.data();
 
-  // 🔥 Copy ENTIRE canvas data
+  // Copy ENTIRE canvas data
   await setDoc(doc(db, "sharedProjects", shareId), {
     objects: data.objects || [],
     walls: data.walls || [],
     shapes: data.shapes || [],
+    symbols: data.symbols || [],
+    textboxes: data.textboxes || [],
   });
 
   return shareId;
@@ -88,4 +92,5 @@ export async function getSharedProject(shareId) {
   const ref = doc(db, "sharedProjects", shareId);
   const snap = await getDoc(ref);
   return snap.exists() ? snap.data() : null;
+
 }
