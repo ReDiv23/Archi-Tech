@@ -109,7 +109,7 @@ function SymbolImage({ symbol, onSelect, onDragEnd, onTransformEnd, registerRef,
       offsetX={symbol.flipX ? symbol.width : 0}
       offsetY={symbol.flipY ? symbol.height : 0}
       image={img}
-      draggable={!isInDrawingMode}
+      draggable={!isInDrawingMode & !isReadOnly}
       onClick={() => !isInDrawingMode && onSelect()}
       onDragEnd={onDragEnd}
       onTransformEnd={onTransformEnd}
@@ -2059,3 +2059,4 @@ return (
   );
 
 }
+
